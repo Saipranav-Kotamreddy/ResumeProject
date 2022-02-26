@@ -24,7 +24,7 @@ Implement using a json file to mass upload resumes
 Change how many results are visible at a time with a toggle at the top, choices are 5,10,20,50
 Make it so search shows blurb of each resume and you can click on blurb to get more info
   Have numbers on the left of each line corresponding to position, when one is clicked, it sends that lines id number to a servlet which then queries that one row from the database and displays it on a new page
-Figure out how to display blobs from database onto front-end
+  Figure out how to display blobs from database onto front-end
 On the Blurb page, make it so you can update the status of the resume, whether interviewing, interested, hired, etc…
   Additionally, make it so if elements are missing on the more in-depth page, the user can upload them later in order to fix it
 
