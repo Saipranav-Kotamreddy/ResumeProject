@@ -1,0 +1,34 @@
+Login related implementations:
+Implement sessions and cookies to carry information between pages
+Using cookies, display current user in top right corner, when clicked popup saying logout appears, can click yes or no
+Implement email authentication in some form
+Add licensing function in a table with company names and if they’re authorized to use application
+Change Password Button on Login page
+
+Resume Input Related Implementations:
+Implement using a json file to mass upload resumes
+  Have upload file option above the manual form input, separate form on the jsp
+  Take in csv or json file as an upload, check if its a csv or json
+  Read the contents of the file into an inputstream
+  Based on if it is a csv or json, parse the values in different ways
+  Upload all data into the database server
+  Do csv first then json implementation
+  Add more things to database, ask Nana for more possible columns
+  Resume display related implementations:
+  Search database for multiple keywords
+  Change query to pull all rows at once
+  Separate query to only pull id and skillList
+  Take these ids and skillLists and sort them using heap
+  Set cookie based on this sorted order
+  Alternatively, do a n^2 print in the html file, since its constant time technically
+Change how many results are visible at a time with a toggle at the top, choices are 5,10,20,50
+Make it so search shows blurb of each resume and you can click on blurb to get more info
+  Have numbers on the left of each line corresponding to position, when one is clicked, it sends that lines id number to a servlet which then queries that one row from the database and displays it on a new page
+Figure out how to display blobs from database onto front-end
+On the Blurb page, make it so you can update the status of the resume, whether interviewing, interested, hired, etc…
+  Additionally, make it so if elements are missing on the more in-depth page, the user can upload them later in order to fix it
+
+After expanding functionality enough:
+Make website look pretty using CSS
+Upload to AWS
+Add possible API support
