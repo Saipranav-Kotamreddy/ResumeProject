@@ -30,9 +30,11 @@ public class SearchDao {
 				JSONObject obj = new JSONObject();
 				for (int i=1; i<=columnCnt; i++)
 				{
-					String key = columnNames.get(i - 1);
-					String value = rs.getString(i);
-					obj.put(key, value);
+					if(i!=8&&i!=10) {
+						String key = columnNames.get(i - 1);
+						String value = rs.getString(i);
+						obj.put(key, value);
+					}
 				}
 				resList.add(obj);
 				//System.out.println("aaaaaaaaaA"+resList);

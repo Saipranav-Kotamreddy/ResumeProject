@@ -58,7 +58,6 @@ public class Login_Servlet extends HttpServlet {
 			}
 			
 			String hash=hashedPassword.toString();
-			System.out.println(hash);
 			loginData.setPassword(hash);
 		}
 		catch(NoSuchAlgorithmException e){
@@ -101,7 +100,8 @@ public class Login_Servlet extends HttpServlet {
 			request.getRequestDispatcher("loginSuccess.jsp").forward(request,response);
 		}
 		else {
-			response.sendRedirect("login.jsp");
+			request.setAttribute("errorFlag", "true");
+			request.getRequestDispatcher("login.jsp").forward(request,response);
 		}
 	}
 

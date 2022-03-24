@@ -9,6 +9,15 @@
 <body>
 <div align="center">
 <h1>Login Page:</h1>
+<p id="errorMessage"></p>
+<script>
+errorCheck();
+function errorCheck(){
+	if('<%=request.getAttribute("errorFlag")%>'=="true"){
+		document.getElementById("errorMessage").innerHTML+="Error, Failed to login";
+	}	
+}
+</script>
 <form method="post" action="login">
 <table>
 <tr>
@@ -24,6 +33,7 @@
 </tr>
 </table>
 </form>
+<a href="changePassword.jsp">Change Password</a>
 </div>
 </body>
 </html>

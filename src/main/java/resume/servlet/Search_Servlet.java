@@ -88,7 +88,24 @@ public class Search_Servlet extends HttpServlet {
 		List<JSONObject> recordList = new ArrayList<JSONObject>();
 		recordList = searchDao.getRecords(vec);
 		//System.out.println(recordList);
-		request.setAttribute("records", recordList);
+		List<JSONObject> newRecordList = new ArrayList<JSONObject>();
+		boolean check=false;
+		int iter=0;
+		for(int i=0; i<recordList.size();i++) {
+			while(check==false && iter<recordList.size()) {
+				System.out.println("Looking for: " +vec.elementAt(i).toString() + " Got: "+ recordList.get(iter).get("ID"));
+				if(vec.elementAt(i).toString().equals(recordList.get(iter).get("ID"))) {
+					newRecordList.add(recordList.get(iter));
+					check=true;
+				}
+				iter++;
+			}
+			System.out.println(newRecordList.get(i).get("NAME"));
+			iter=0;
+			check=false;
+		}
+		System.out.println("End of Servlet " + newRecordList.size());
+		request.setAttribute("records", newRecordList);
 		/*Add page cookie for which page of records we're on and cookie storing vector of ids we got above
 		Redirect to results page with next and previous buttons that either go to page+1 or page-1, previous gives same page
 		when on page 1, next gives same page when on last page of records*/

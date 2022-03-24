@@ -9,6 +9,15 @@
 <body>
 <div align="center">
 <h1>Registration Page</h1>
+<p id="errorMessage"></p>
+<script>
+errorCheck();
+function errorCheck(){
+	if('<%=request.getAttribute("errorFlag")%>'=="true"){
+		document.getElementById("errorMessage").innerHTML+="Error, Failed to register";
+	}	
+}
+</script>
 <form method="post" action="register">
 <table>
 <tr>

@@ -20,7 +20,7 @@ display();
 function display(){
 	document.getElementById("results").innerHTML="";
 	for(var i=(page-1)*5; i<Object.keys(list).length && i<page*5; i++){
-		document.getElementById("results").innerHTML += "Name: " + list[i].NAME + "    Skillset: " + list[i].SKILLLIST + "<br />";
+			document.getElementById("results").innerHTML += "Name: " + list[i].NAME + "    Skillset: " + list[i].SKILLLIST + "<br />";
 	}
 	document.getElementById("results").innerHTML += "Page " + page + " of " + maxPages + "<br />";
 }

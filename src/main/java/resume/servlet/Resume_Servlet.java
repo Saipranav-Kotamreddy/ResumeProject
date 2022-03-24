@@ -66,18 +66,18 @@ public class Resume_Servlet extends HttpServlet {
 		resumeData.setResumePdf(request.getPart("resume_link"));
 		resumeData.setPicture(request.getPart("picture"));
 		resumeData.setSkillList(request.getParameter("skills"));
-		boolean check = resumeDao.insertTable(resumeData, company, username);
+		boolean check=true;
+		check = resumeDao.insertTable(resumeData, company, username);
 		//System.out.println(check);
-		
-		cookies[0].setMaxAge(0);
-		
+				
 		if(check==true) {
 			//Add Success html page
 			response.sendRedirect("input.jsp");
 		}
 		else {
 			//Add Failure html Page
-			response.sendRedirect("welcome.html");
+			request.setAttribute("errorFlag", "true");
+			request.getRequestDispatcher("input.jsp").forward(request,response);	
 		}
 	}
 

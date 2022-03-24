@@ -71,8 +71,8 @@ public class Register_Servlet extends HttpServlet {
 			//response.sendRedirect("registerSuccess.jsp");
 		}
 		else {
-			response.sendRedirect("register.jsp");
-		}
+			request.setAttribute("errorFlag", "true");
+			request.getRequestDispatcher("register.jsp").forward(request,response);		}
 	}
 
 }

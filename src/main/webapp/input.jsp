@@ -14,7 +14,16 @@
 </div>
 <div align="center">
 <h1>Input Resume Page:</h1>
-<form method="post" action="resume" enctype = "multipart/form-data">>
+<p id="errorMessage"></p>
+<script>
+errorCheck();
+function errorCheck(){
+	if('<%=request.getAttribute("errorFlag")%>'=="true"){
+		document.getElementById("errorMessage").innerHTML+="Error, Failed to insert Resume";
+	}	
+}
+</script>
+<form method="post" action="resume" enctype = "multipart/form-data">
 <table>
 <tr>
 	<td>Applicant Name:</td>
@@ -41,6 +50,18 @@
 	<td> <input type= "text" name="skills"></td>
 </tr>
 
+<tr>
+	<td><div align="center"><input type= "submit" value="Submit"></div></td>
+</tr>
+</table>
+</form>
+<p>Batch Upload using CSV</p>
+<form method="post" action="batch" enctype = "multipart/form-data">
+<table>
+<tr>
+	<td>CSV File:</td>
+	<td> <input type= "file" name="batchUpload"></td>
+</tr>
 <tr>
 	<td><div align="center"><input type= "submit" value="Submit"></div></td>
 </tr>

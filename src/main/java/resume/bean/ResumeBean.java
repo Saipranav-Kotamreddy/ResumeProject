@@ -1,5 +1,9 @@
 package resume.bean;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Vector;
 
 import javax.servlet.http.Part;
@@ -13,8 +17,37 @@ public class ResumeBean {
 	private Vector<String> skills = new Vector<String>(5);
 	private Part resumeFile;
 	private Part picture;
+	private InputStream urlResume;
+	private InputStream urlPicture;
 	
-    public String getName() {
+	public ResumeBean(String name, String phoneNumber, String emailAddress, String resumeLink, String skillList, String pictureLink){
+		this.name=name;
+		this.phoneNumber=phoneNumber;
+		this.emailAddress=emailAddress;
+		this.skillList=skillList;
+		try {
+			this.setUrlResume(new URL(resumeLink).openStream());
+			this.setUrlPicture(new URL(pictureLink).openStream());
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+    public ResumeBean() {
+		// TODO Auto-generated constructor stub
+    	this.name=null;
+		this.phoneNumber=null;
+		this.emailAddress=null;
+		this.skillList=null;
+		this.resumeFile=null;
+		this.picture=null;
+	}
+
+	public String getName() {
     	return name;
     }
 	public void setName(String name) {
@@ -75,5 +108,21 @@ public class ResumeBean {
 	}
 	public int getSkillNumber() {
 		return skillNumber;
+	}
+
+	public InputStream getUrlResume() {
+		return urlResume;
+	}
+
+	public void setUrlResume(InputStream urlResume) {
+		this.urlResume = urlResume;
+	}
+
+	public InputStream getUrlPicture() {
+		return urlPicture;
+	}
+
+	public void setUrlPicture(InputStream urlPicture) {
+		this.urlPicture = urlPicture;
 	}
 }
