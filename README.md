@@ -1,4 +1,4 @@
-# ResumeProject
+# TalentScout
 
 This project is a website completely built from Scratch using HTML, JSP, MYSQL, and Java code by Saipranav Kotamreddy. 
 
